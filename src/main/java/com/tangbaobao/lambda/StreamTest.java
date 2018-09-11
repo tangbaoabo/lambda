@@ -87,7 +87,14 @@ public class StreamTest {
                 .reduce("", (n1, n2) -> n1 + n2);
         System.out.println(reduce);
     }
-
+    @Test
+    public void fun4_1() {
+        String reduce = transactions.stream()
+                .map(x -> x.getTrader().getName())
+                .sorted(String::compareTo)
+                .collect(Collectors.joining());
+        System.out.println(reduce);
+    }
     /**
      * 有没有交易员是在美国工作的?
      */
